@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import user from '@testing-library/user-event'
 import Vote from './Vote'
 
@@ -6,6 +6,7 @@ test('increases total likes by one', () => {
   render(<Vote totalGlobalLikes={10} />)
 
   expect(screen.getByText(/10/i)).toBeInTheDocument()
+  // fireEvent.click(screen.getByRole('button', { name: /thumbs up/i})) -- fireEvent has limitations.
   user.click(screen.getByRole('button', { name: /thumbs up/i }))
   expect(screen.getByText(/11/i)).toBeInTheDocument()
 

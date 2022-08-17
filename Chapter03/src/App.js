@@ -1,3 +1,4 @@
-const App = () => <h1>Replace me with chapter related components </h1> 
+import DrinkSearch from './DrinkSearch'
+const App = () => <DrinkSearch />
 
 export default App

@@ -9,3 +9,11 @@ it('renders with expected values', () => {
   expect(screen.getByRole('cell', { name: /engineering/i })).toBeInTheDocument()
   expect(screen.getByRole('cell', { name: /designer/i })).toBeInTheDocument()
 })
+
+it('has correct class', () => {
+  render(<Table employees={fakeEmployees} />)
+  expect(screen.getByRole('table')).toHaveAttribute(
+    'class',
+    'table table-striped'
+  )
+})

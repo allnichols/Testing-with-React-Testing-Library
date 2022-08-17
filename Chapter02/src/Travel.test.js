@@ -1,8 +1,10 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Travel from './Travel'
 
 it('displays the header and paragraph text', () => {
   const { container } = render(<Travel />)
+  const header = screen.getByRole('heading', { name: /travel anywhere/i })
+  screen.debug(header)
 
   expect(container).toMatchInlineSnapshot(`
     <div>
