@@ -44,6 +44,9 @@ describe('Table', () => {
         <Table />
       </MockedProvider>
     )
+    //    Although we are not accessing the real GraphQL server,
+    //   the Apollo methods we use are asynchronous and take some time to complete.
+    //   We explicitly complete the asynchronous process after 0 seconds to continue the test steps.
     await act(() => new Promise(resolve => setTimeout(resolve, 0)))
 
     expect(screen.getAllByTestId('row').length).toEqual(2)
